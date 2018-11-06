@@ -78,8 +78,10 @@ if(NOT CMAKE_BUILD_TYPE)
         FORCE)
 endif(NOT CMAKE_BUILD_TYPE)
 
-set(CMAKE_INSTALL_LIBDIR lib CACHE STRING
-    "The base name of the installation directory for libraries")
+if(NOT CMAKE_INSTALL_LIBDIR)
+    set(CMAKE_INSTALL_LIBDIR lib CACHE STRING
+         "The base name of the installation directory for libraries")
+endif(NOT CMAKE_INSTALL_LIBDIR)
 
 if(CMAKE_C_COMPILER_ID STREQUAL "GNU")
     add_definitions(-Wall -Werror)
